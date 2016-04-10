@@ -33,13 +33,13 @@ app.controller('ReferendumController', function($scope, $interval) {
     }
 
     $interval(function() {
-        var n = new Date().getTime() / 1000;
+        var n = Math.round(new Date().getTime() / 1000);
         var m = new Date().getTime() % 1000;
-        if (n % 10 < $scope.ideas.length) {
+        if (n % 5 < $scope.ideas.length) {
             if (m % 2 == 0)
-                $scope.ideas[n % 10].yesVotes = $scope.ideas[n % 10].yesVotes +1
+                $scope.ideas[n % 5].yesVotes = $scope.ideas[n % 5].yesVotes +1
                 else
-                    $scope.ideas[n % 10].noVotes = $scope.ideas[n % 10].noVotes +1
+                    $scope.ideas[n % 5].noVotes = $scope.ideas[n % 5].noVotes +1
         }
     }, 500)
 });
