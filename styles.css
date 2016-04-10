@@ -46,3 +46,23 @@ body {
 	opacity: 0.25;
 	z-index: 10;
 }
+.headerRed{
+	background-color: #f9c8aa;
+}
+.bckgRed{
+	    background-color: #fbf4ee;
+}
+.headerGreen{
+	background-color: #3cb371;
+}
+.bckgGreen
+{
+	background-color: #dff0d8;
+}
+.headerBlue{
+		    background-color: #c5d5e5;
+}
+.bckBlue{
+
+		    background-color: #f6f4f5;
+}
