@@ -54,7 +54,7 @@
             <br/>
             <div class="row">
                 <div class="col-xs-12 col-md-8">
-                    <div class="panel panel-default" ng-repeat="idea in ideas | orderBy:'yesVotes'">
+                    <div class="panel panel-default idee" ng-repeat="idea in ideas | orderBy:'-yesVotes' track by idea.name" jd-script>
                         <div class="panel-heading">
                             <h3 class="panel-title">
                                 <div class="row">

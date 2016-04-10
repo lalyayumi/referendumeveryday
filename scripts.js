@@ -57,14 +57,15 @@ app.controller('ReferendumController', function($scope, $interval) {
         $scope.ideas.push({name: $scope.newIdeaName, description: $scope.newIdeaDesc, yesVotes: 0, noVotes: 0})
     }
 
+    $scope.n = 0;
+
     $interval(function() {
-        var n = Math.round(new Date().getTime() / 1000);
-        var m = new Date().getTime() % 1000;
-        if (n % 10 < $scope.ideas.length) {
-            if (m % 10 == 0)
-                $scope.ideas[n % 10].yesVotes = $scope.ideas[n % 10].yesVotes +1
-                else
-                    $scope.ideas[n % 10].noVotes = $scope.ideas[n % 10].noVotes +1
-        }
-    }, 500)
+        var m = new Date().getTime() % $scope.ideas.length;
+        if ($scope.n % 2 == 0)
+            $scope.ideas[m].yesVotes = $scope.ideas[m].yesVotes +1
+            else
+                $scope.ideas[m].noVotes = $scope.ideas[m].noVotes +1
+                }, 500)
+
 });
+

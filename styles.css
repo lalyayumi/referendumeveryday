@@ -37,3 +37,12 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+
+.container {
+	position: relative;
+}
+
+.moving {
+	opacity: 0.25;
+	z-index: 10;
+}
