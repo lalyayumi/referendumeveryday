@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Blog Template for Bootstrap</title>
+        <title>Referendum Everyday</title>
 
         <!-- Bootstrap core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
     <body ng-controller="ReferendumController">
 
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
                         <img alt="Brand" src="...">
@@ -48,52 +48,80 @@
         </nav> 
         <div class="container">
             <div class="row">
-                <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal">Add idea</button>
+                <button type="button" class="btn btn-primary btn-lg col-md-12"  data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus-sign" ></i> Add a suggestion for your city!</button>
             </div>
             <br/>
             <div class="row">
-                <div class="panel panel-default" ng-repeat="idea in ideas">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <div class="row">
-                                <div class="col-md-8">{{idea.name}}</div>
-                                <div class="col-md-1">{{idea.yesVotes}} <i class="glyphicon glyphicon-thumbs-up" ng-click="idea.yesVotes = idea.yesVotes + 1"></i></div>
-                                <div class="col-md-1">{{idea.noVotes}} <i class="glyphicon glyphicon-thumbs-down " ng-click="idea.noVotes = idea.noVotes + 1"></i></div>
-                                <div class="col-md-2 right"><i class="fa fa-facebook-official fa-lg"></i> Share</div>
-                            </div>
-                        </h3>
-                    </div>
-                    <div class="panel-body">
+                <div class="col-xs-12 col-md-8">
+                    <div class="panel panel-default" ng-repeat="idea in ideas">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-8">{{idea.name}}</div>
+                                    <div class="col-xs-6 col-md-4 right">{{idea.yesVotes}} <i class="glyphicon glyphicon-thumbs-up" ng-click="idea.yesVotes = idea.yesVotes + 1"></i >&nbsp;&nbsp;&nbsp;&nbsp;{{idea.noVotes}} <i class="glyphicon glyphicon-thumbs-down " ng-click="idea.noVotes = idea.noVotes + 1"></i> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-facebook-official fa-lg"></i></div>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
 
-                        {{idea.description}}
+                            {{idea.description}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4">
+                    <div class="alert alert-success" role="alert">
+                        <a href="#" class="alert-link">Successfully implemented ideas</a>
+                    </div>
+                    <h4></h4>
+                    <div class="panel panel-default" ng-repeat="idea in successIdeas">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <div class="row">
+                                    <div class="col-xs-12">{{idea.name}}</div>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+
+                            {{idea.description}}
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
+
+        
+            <footer class="footer">
+                <div class="container">
+                    <p class="text-muted"><h4>Let's make the civic spirit cool again. <b>Be the change we all need!</b> &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-facebook-official fa-lg"></i></h4></p>
+                </div>
+            </footer>
         
         <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">New idea for your city</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Give your idea a nema</p><input type="text" class=" text" ng-model="newIdeaName">
+                        <p>Describe your awesome idea</p><textarea class="area" ng-model="newIdeaDesc"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addIdea()"><i class="glyphicon glyphicon-plus-sign" ></i> Add</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
 
-  </div>
-</div>
-
-
-
+            </div>
+        </div>
     </body>
 </html>
 
